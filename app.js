@@ -1,21 +1,21 @@
-// Run this function once the DOM is fully loaded
+
 document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('new-task');
     const taskList = document.getElementById('task-list');
     const searchInput = document.getElementById('search');
     const addTaskButton = document.getElementById('add-task');
 
-    // Load tasks from localStorage or start with an empty array
+    
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-    // Save tasks to localStorage
+    
     function saveTasks() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
-    // Render the list of tasks
+    
     function renderTasks(filteredTasks = tasks) {
-        taskList.innerHTML = '';  // Clear existing tasks
+        taskList.innerHTML = '';  
 
         filteredTasks.forEach((task, index) => {
             const li = document.createElement('li');
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tasks.push({ text: newTask, completed: false });
             saveTasks();
             renderTasks();
-            taskInput.value = '';  // Clear input field after adding
+            taskInput.value = ''; 
         }
     });
 
@@ -95,6 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTasks(filteredTasks);
     });
 
-    // Initial rendering of tasks
+    
     renderTasks();
 });
